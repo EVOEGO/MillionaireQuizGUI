@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="QuizQuestionsDataBase" uuid="bac0caff-fb09-4026-956e-6bb562ca6ff4">
+      <driver-ref>derby.embedded</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby:$PROJECT_DIR$/DerbyDatabase;create=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="QuizDataBase" uuid="2ddabafc-c32c-4604-87b1-80a9836cbfc6">
+      <driver-ref>derby.embedded</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby:$PROJECT_DIR$/../MillionaireQuizGUI\QuizDataBase</jdbc-url>
+    </data-source>
+  </component>
+</project>
