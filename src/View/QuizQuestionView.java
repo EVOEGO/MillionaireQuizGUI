@@ -110,6 +110,8 @@ public class QuizQuestionView extends JPanel
 		answerButton4.setBorderPainted(false);
 		answerButton4.setBounds(60, 344, 245, 25);
 		answerButton4.setForeground(Color.white);
+		answerButton4.setName(answers.getShuffledAnswers().get(0));
+		answerButton4.addActionListener(w);
 		add(answerButton4);
 		this.button4 = answers.getShuffledAnswers().get(0);
 
@@ -119,6 +121,8 @@ public class QuizQuestionView extends JPanel
 		answerButton3.setBorderPainted(false);
 		answerButton3.setBounds(450, 344, 245, 25);
 		answerButton3.setForeground(Color.white);
+		answerButton3.setName(answers.getShuffledAnswers().get(1));
+		answerButton3.addActionListener(w);
 		add(answerButton3);
 		this.button3 = answers.getShuffledAnswers().get(1);
 
@@ -128,6 +132,8 @@ public class QuizQuestionView extends JPanel
 		answerButton2.setBorderPainted(false);
 		answerButton2.setBounds(450, 285, 245, 25);
 		answerButton2.setForeground(Color.white);
+		answerButton2.setName(answers.getShuffledAnswers().get(2));
+		answerButton2.addActionListener(w);
 		add(answerButton2);
 		this.button2 = answers.getShuffledAnswers().get(2);
 
@@ -137,6 +143,8 @@ public class QuizQuestionView extends JPanel
 		answerButton1.setBorderPainted(false);
 		answerButton1.setBounds(60, 285, 245, 25);
 		answerButton1.setForeground(Color.white);
+		answerButton1.setName(answers.getShuffledAnswers().get(3));
+		answerButton1.addActionListener(w);
 		add(answerButton1);
 		this.button1 = answers.getShuffledAnswers().get(3);
 
@@ -145,6 +153,8 @@ public class QuizQuestionView extends JPanel
 		exitButton.setContentAreaFilled(false);
 		exitButton.setBorderPainted(false);
 		exitButton.setBounds(8, 10, 70, 25);
+		exitButton.setName("exitButton");
+		exitButton.addActionListener(w);
 		add(exitButton);
 
 		questionBackground = new JLabel("New label");

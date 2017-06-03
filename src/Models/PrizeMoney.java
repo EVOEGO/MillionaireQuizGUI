@@ -7,12 +7,12 @@ import java.util.ArrayList;
  */
 public class PrizeMoney
 {
-    QuestionNumber number = new QuestionNumber();
     private static ArrayList<Integer> values;
-    private int prizeMoney;
 
-    public void setPrizeMoney() {
+    public static Integer getPrizeMoney(int questionNumber) {
        /*This method stores the prize money arraylist, so i can print the amount each question is worth*/
+
+       int prizeMoney = 0;
 
         values = new ArrayList<>();
         values.add(500);
@@ -31,15 +31,19 @@ public class PrizeMoney
         values.add(500000);
         values.add(1000000);
 
-    }
+        prizeMoney = values.get(questionNumber);
 
+        return prizeMoney;
 
-    public Integer getScore(int index)
-    {
-        if (index >= 0 && index < values.size()) {
-            return values.get(index);
-        }
-        return null;
     }
+//
+//
+//    public Integer getScore(int index)
+//    {
+//        if (index >= 0 && index < values.size()) {
+//            return values.get(index);
+//        }
+//        return null;
+//    }
 
 }

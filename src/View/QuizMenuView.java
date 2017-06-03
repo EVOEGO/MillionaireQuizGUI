@@ -35,6 +35,7 @@ public class QuizMenuView extends JPanel
 		setLayout(null);
 		
 		JButton exitButton = new JButton();
+		exitButton.setName("exitButton");
 		exitButton.setOpaque(false);
 		exitButton.addActionListener(e);
 		exitButton.setContentAreaFilled(false);
@@ -43,6 +44,7 @@ public class QuizMenuView extends JPanel
 		add(exitButton);
 		
 		JButton scoreButton = new JButton();
+		scoreButton.setName("scoreButton");
 		scoreButton.setOpaque(false);
 		scoreButton.addActionListener(e);
 		scoreButton.setContentAreaFilled(false);
@@ -51,8 +53,9 @@ public class QuizMenuView extends JPanel
 		add(scoreButton);
 		
 		JButton new_Game_Button = new JButton();
+		new_Game_Button.setName("newGameButton");
 		new_Game_Button.setBounds(300, 301, 140, 23);
-		new_Game_Button.setOpaque(false); b  
+		new_Game_Button.setOpaque(false);
 		new_Game_Button.addActionListener(e);
 		new_Game_Button.setContentAreaFilled(false); 
 		new_Game_Button.setBorderPainted(false); 

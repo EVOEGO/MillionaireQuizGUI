@@ -404,7 +404,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
     {
         String source = ((Component) actionEvent.getSource()).getName();
 
-        if (source.equals("new_Game_Button"))
+        if (source.equals("newGameButton"))
         {
             Game game = new Game(card);
             System.out.println("oits alive");

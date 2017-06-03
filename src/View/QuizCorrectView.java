@@ -32,9 +32,11 @@ public class QuizCorrectView extends JPanel
         nextQuestionButton.setContentAreaFilled(false);
         nextQuestionButton.setBorderPainted(false);
         nextQuestionButton.setBounds(591, 300, 155, 80);
+        nextQuestionButton.setName("nextQuestionButton");
+        nextQuestionButton.addActionListener(w);
         add(nextQuestionButton);
 
-        this.winnings = new JButton("Prize Total: " + score.getScore(qNumber.getQuestionNumber()).toString());
+        this.winnings = new JButton("Prize Total: $" + score.getPrizeMoney(qNumber.getQuestionNumber()));
         winnings.setFont(font);
         winnings.setOpaque(false);
         winnings.setContentAreaFilled(false);

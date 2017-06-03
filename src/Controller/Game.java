@@ -36,13 +36,10 @@ public class Game implements ActionListener
 
     public Game(Card card){
         this.card = card;
+        QuizQuestions.setFinalQuestions();
 
         QuizQuestionView FirstQuestionView = new QuizQuestionView(this);
         card.addCardToStack(FirstQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
-        QuizCorrectView correctView = new QuizCorrectView(this);
-        QuizIncorrectView incorrectView = new QuizIncorrectView(this);
-        card.addCardToStack(correctView, "Correct");
-        card.addCardToStack(incorrectView, "Incorrect");
 
     }
 
@@ -58,15 +55,21 @@ public class Game implements ActionListener
                 question_Number++;
                 question.setCurrentNumber(question_Number);
 
-                QuizQuestionView NextQuestionView = new QuizQuestionView(this);
+                QuizCorrectView correctView = new QuizCorrectView(this);
+                card.addCardToStack(correctView, "Correct");
 
+                card.showCard("Correct");
+
+            }
+            else if (source.equalsIgnoreCase("nextQuestionButton")) {
+
+                QuizQuestionView NextQuestionView = new QuizQuestionView(this);
                 card.addCardToStack(NextQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
-            } else if (source.equalsIgnoreCase("nextQuestionButton")) {
-                card.showCard("nextQuestionButton");
             } else if (source.equalsIgnoreCase("returnToMenuBTN")) {
                 card.showCard("Menu");
             } else {
-                card.showCard("Menu");
+              QuizIncorrectView incorrectView = new QuizIncorrectView(this);
+              card.addCardToStack(incorrectView, "Incorrect");
             }
     }
 
