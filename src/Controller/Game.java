@@ -1,18 +1,11 @@
 package Controller;
 
-import Models.QuestionDataBase;
-import Models.QuestionNumber;
-import Models.SetFinalGameQuestions;
-import Models.ShuffleAnswers;
-import View.Card;
-import View.QuizCorrectView;
-import View.QuizIncorrectView;
-import View.QuizQuestionView;
+import Models.*;
+import View.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -24,9 +17,11 @@ public class Game implements ActionListener
     private SetFinalGameQuestions QuizQuestions = new SetFinalGameQuestions();
     private ShuffleAnswers SortedAnswers = new ShuffleAnswers();
     private QuestionNumber question = new QuestionNumber();
+    private LifeLines lifeLines = new LifeLines();
     private String source;
     private Card card;
     private int question_Number;
+
 
     public ArrayList<String> getRoundAnswers()
     {
@@ -37,6 +32,7 @@ public class Game implements ActionListener
     public Game(Card card){
         this.card = card;
         QuizQuestions.setFinalQuestions();
+        lifeLines.setLifeLines();
 
         QuizQuestionView FirstQuestionView = new QuizQuestionView(this);
         card.addCardToStack(FirstQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
@@ -67,9 +63,18 @@ public class Game implements ActionListener
                 card.addCardToStack(NextQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             } else if (source.equalsIgnoreCase("returnToMenuBTN")) {
                 card.showCard("Menu");
-            } else {
-              QuizIncorrectView incorrectView = new QuizIncorrectView(this);
-              card.addCardToStack(incorrectView, "Incorrect");
+            } else if (source.equalsIgnoreCase("exitButton")) {
+                card.showCard("Menu");
+            }
+            else if(source.equalsIgnoreCase("fiftyFiftyButton") && lifeLines.getLifeLines(0) == false) {
+                lifeLines.usedLifeLine(0);
+                FiftyFiftyView FiftyFiftyView = new FiftyFiftyView(this);
+                card.addCardToStack(FiftyFiftyView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
+            }
+            else
+            {
+                QuizIncorrectView incorrectView = new QuizIncorrectView(this);
+                card.addCardToStack(incorrectView, "Incorrect");
             }
     }
 

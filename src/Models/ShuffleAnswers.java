@@ -11,6 +11,7 @@ public class ShuffleAnswers
     private SetFinalGameQuestions questions = new SetFinalGameQuestions();
     private QuestionNumber qNumber = new QuestionNumber();
     private static ArrayList<String> ShuffledAnswers = new ArrayList<String>();
+    private static ArrayList<String> FiftyFiftyAnswers = new ArrayList<String>();
 
     public ArrayList<String> shuffle() {
 
@@ -30,5 +31,21 @@ public class ShuffleAnswers
     public ArrayList<String> getShuffledAnswers()
     {
         return this.ShuffledAnswers;
+    }
+
+    public ArrayList<String> getFiftyFifty()
+    {
+        if(ShuffledAnswers.get(0).equalsIgnoreCase(questions.getQuestion(qNumber.getQuestionNumber()).getAnswer()) || ShuffledAnswers.get(1).equalsIgnoreCase(questions.getQuestion(qNumber.getQuestionNumber()).getAnswer()))
+        {
+            FiftyFiftyAnswers.add(ShuffledAnswers.get(0));
+            FiftyFiftyAnswers.add(ShuffledAnswers.get(1));
+        }
+        else
+        {
+            FiftyFiftyAnswers.add(ShuffledAnswers.get(2));
+            FiftyFiftyAnswers.add(ShuffledAnswers.get(3));
+        }
+
+        return this.FiftyFiftyAnswers;
     }
 }
