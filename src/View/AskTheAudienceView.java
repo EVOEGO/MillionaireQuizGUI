@@ -1,9 +1,6 @@
 package View;
 
-import Models.LifeLines;
-import Models.QuestionNumber;
-import Models.SetFinalGameQuestions;
-import Models.ShuffleAnswers;
+import Models.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +15,7 @@ public class AskTheAudienceView extends JPanel
     private ShuffleAnswers answers = new ShuffleAnswers();
     private QuestionNumber qNumber = new QuestionNumber();
     private LifeLines lifeLines = new LifeLines();
+    private AskTheAudience askTheAudience = new AskTheAudience();
 
     private JButton exitButton;
 
@@ -27,6 +25,9 @@ public class AskTheAudienceView extends JPanel
     private JLabel redx2;
     private JLabel redx3;
     private JLabel answerPercentage1;
+    private JLabel answerPercentage2;
+    private JLabel answerPercentage3;
+    private JLabel answerPercentage4;
 
     private JButton answerButton4;
     private JButton answerButton3;
@@ -45,9 +46,25 @@ public class AskTheAudienceView extends JPanel
         questionLabel.setForeground(Color.white);
         add(questionLabel);
 
-        this.answerPercentage1 = new JLabel();
-        answerPercentage1.setBounds(175, 260, 32, 14);
+        this.answerPercentage1 = new JLabel(askTheAudience.getChancePercentage(0).toString() + "%");
+        answerPercentage1.setBounds(73, 290, 32, 14);
+        answerPercentage1.setForeground(Color.white);
         add(answerPercentage1);
+
+        this.answerPercentage2 = new JLabel(askTheAudience.getChancePercentage(1).toString() + "%");
+        answerPercentage2.setBounds(71, 347, 32, 14);
+        answerPercentage2.setForeground(Color.white);
+        add(answerPercentage2);
+
+        this.answerPercentage3 = new JLabel(askTheAudience.getChancePercentage(2).toString() + "%");
+        answerPercentage3.setBounds(463, 290, 32, 14);
+        answerPercentage3.setForeground(Color.white);
+        add(answerPercentage3);
+
+        this.answerPercentage4 = new JLabel(askTheAudience.getChancePercentage(3).toString() + "%");
+        answerPercentage4.setBounds(465, 348, 32, 14);
+        answerPercentage4.setForeground(Color.white);
+        add(answerPercentage4);
 
         this.answerButton4 = new JButton("A " + answers.getShuffledAnswers().get(0));
         answerButton4.setOpaque(false);

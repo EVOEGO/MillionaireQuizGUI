@@ -18,6 +18,8 @@ public class Game implements ActionListener
     private ShuffleAnswers SortedAnswers = new ShuffleAnswers();
     private QuestionNumber question = new QuestionNumber();
     private LifeLines lifeLines = new LifeLines();
+    private AskTheAudience askTheAudience = new AskTheAudience();
+
     private String source;
     private Card card;
     private int question_Number;
@@ -70,6 +72,13 @@ public class Game implements ActionListener
                 lifeLines.usedLifeLine(0);
                 FiftyFiftyView FiftyFiftyView = new FiftyFiftyView(this);
                 card.addCardToStack(FiftyFiftyView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
+            }
+            else if(source.equalsIgnoreCase("askTheAudienceButton") && lifeLines.getLifeLines(1) == false)
+            {
+                lifeLines.usedLifeLine(1);
+                askTheAudience.setAskTheAudience(question.getQuestionNumber());
+                AskTheAudienceView askTheAudienceView = new AskTheAudienceView(this);
+                card.addCardToStack(askTheAudienceView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             }
             else
             {

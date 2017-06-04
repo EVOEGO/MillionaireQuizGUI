@@ -31,6 +31,7 @@ public class QuizQuestionView extends JPanel
 	private JButton answerButton2;
 	private JButton answerButton1;
 	private JButton fiftyFiftyButton;
+	private JButton askTheAudienceButton;
 
 	private String button1;
 	private String button2;
@@ -172,6 +173,19 @@ public class QuizQuestionView extends JPanel
 			fiftyFiftyButton.setName("fiftyFiftyButton");
 			fiftyFiftyButton.addActionListener(w);
 			add(fiftyFiftyButton);
+		}
+
+		if(lifeLines.getLifeLines(1) == false)
+		{
+			this.askTheAudienceButton = new JButton();
+			askTheAudienceButton.setOpaque(false);
+			askTheAudienceButton.setContentAreaFilled(false);
+			askTheAudienceButton.setBorderPainted(false);
+			askTheAudienceButton.setBounds(584, 21, 76, 42);
+			askTheAudienceButton.setName("askTheAudienceButton");
+			askTheAudienceButton.addActionListener(w);
+			add(askTheAudienceButton);
+
 		}
 
 		if(lifeLines.getLifeLines(0) == true)
