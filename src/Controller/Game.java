@@ -19,6 +19,7 @@ public class Game implements ActionListener
     private QuestionNumber question = new QuestionNumber();
     private LifeLines lifeLines = new LifeLines();
     private AskTheAudience askTheAudience = new AskTheAudience();
+    private Username userName = new Username();
 
     private String source;
     private Card card;
@@ -36,8 +37,8 @@ public class Game implements ActionListener
         QuizQuestions.setFinalQuestions();
         lifeLines.setLifeLines();
 
-        QuizQuestionView FirstQuestionView = new QuizQuestionView(this);
-        card.addCardToStack(FirstQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
+        UsernameView usernameView = new UsernameView(this);
+        card.addCardToStack(usernameView, "username");
 
     }
 
@@ -58,6 +59,27 @@ public class Game implements ActionListener
 
                 card.showCard("Correct");
 
+            }
+            else if(source.equalsIgnoreCase("submitUsernameButton"))
+            {
+                userName.setUserInput(true);
+
+                String check = userName.getUsernameText();
+                char name = ' ';
+
+                for(int x = 0; x < check.length(); x++)
+                {
+                    if(check.charAt(x) == name)
+                    {
+                        userName.setUserInput(false);
+                        card.showCard("userName");
+                    }
+                    else
+                    {
+                        QuizQuestionView FirstQuestionView = new QuizQuestionView(this);
+                        card.addCardToStack(FirstQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
+                    }
+                }
             }
             else if (source.equalsIgnoreCase("nextQuestionButton")) {
 
