@@ -46,7 +46,7 @@ public class QuizIncorrectView extends JPanel
         add(winnings);
 
         JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\incorrect fixed.jpg"));
+        lblNewLabel.setIcon(new ImageIcon("img\\incorrect fixed.jpg"));
         lblNewLabel.setBounds(0, 0, 760, 400);
         add(lblNewLabel);
     }

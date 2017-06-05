@@ -18,7 +18,7 @@ public class QuizQuestionView extends JPanel
 	private QuestionNumber qNumber = new QuestionNumber();
 	private LifeLines lifeLines = new LifeLines();
 
-	private JButton exitButton;
+
 	private JLabel questionBackground;
 
 	private JLabel questionLabel;
@@ -26,79 +26,19 @@ public class QuizQuestionView extends JPanel
 	private JLabel redx2;
 	private JLabel redx3;
 
+	private JButton exitButton;
 	private JButton answerButton4;
 	private JButton answerButton3;
 	private JButton answerButton2;
 	private JButton answerButton1;
 	private JButton fiftyFiftyButton;
 	private JButton askTheAudienceButton;
+	private JButton phoneAFriendButton;
 
 	private String button1;
 	private String button2;
 	private String button3;
 	private String button4;
-
-	public void setButton1(String button1)
-	{
-		this.button1 = button1;
-	}
-
-	public void setButton2(String button2) {
-		this.button2 = button2;
-	}
-
-	public void setButton3(String button3) {
-		this.button3 = button3;
-	}
-
-	public void setButton4(String button4) {
-		this.button4 = button4;
-	}
-
-	public String getButton1() {
-		return button1;
-	}
-
-	public String getButton2() {
-		return button2;
-	}
-
-	public String getButton3() {
-		return button3;
-	}
-
-	public String getButton4() {
-		return button4;
-	}
-
-	public JButton getExitButton()
-	{
-		return this.exitButton;
-	}
-
-	public JButton getAnswerButton1()
-	{
-		return this.answerButton1;
-	}
-
-	public JButton getAnswerButton2()
-	{
-		return this.answerButton2;
-	}
-
-	public JButton getAnswerButton3()
-	{
-		return this.answerButton3;
-	}
-
-	public JButton getAnswerButton4()
-	{
-		return this.answerButton4;
-	}
-
-	public JLabel getQuestionLabel() {
-		return questionLabel;
-	}
 
 	public QuizQuestionView(ActionListener w) {
 		setLayout(null);
@@ -177,11 +117,23 @@ public class QuizQuestionView extends JPanel
 
 		if(lifeLines.getLifeLines(1) == false)
 		{
+			this.phoneAFriendButton = new JButton();
+			phoneAFriendButton.setOpaque(false);
+			phoneAFriendButton.setContentAreaFilled(false);
+			phoneAFriendButton.setBorderPainted(false);
+			phoneAFriendButton.setBounds(584, 21, 76, 42);
+			phoneAFriendButton.setName("phoneAFriendButton");
+			phoneAFriendButton.addActionListener(w);
+			add(phoneAFriendButton);
+		}
+
+		if(lifeLines.getLifeLines(2) == false)
+		{
 			this.askTheAudienceButton = new JButton();
 			askTheAudienceButton.setOpaque(false);
 			askTheAudienceButton.setContentAreaFilled(false);
 			askTheAudienceButton.setBorderPainted(false);
-			askTheAudienceButton.setBounds(584, 21, 76, 42);
+			askTheAudienceButton.setBounds(673, 22, 76, 42);
 			askTheAudienceButton.setName("askTheAudienceButton");
 			askTheAudienceButton.addActionListener(w);
 			add(askTheAudienceButton);
@@ -190,29 +142,29 @@ public class QuizQuestionView extends JPanel
 
 		if(lifeLines.getLifeLines(0) == true)
 		{
-			this.redx1 = new JLabel("New label");
-			redx1.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\red x fianl 1.png"));
+			this.redx1 = new JLabel();
+			redx1.setIcon(new ImageIcon("img\\red x fianl 1.png"));
 			redx1.setBounds(477, 0, 97, 73);
 			add(redx1);
 		}
 		if(lifeLines.getLifeLines(1) == true)
 		{
-			this.redx2 = new JLabel("New label");
-			redx2.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\red x fianl 1.png"));
+			this.redx2 = new JLabel();
+			redx2.setIcon(new ImageIcon("img\\red x fianl 1.png"));
 			redx2.setBounds(566, 3, 105, 66);
 			add(redx2);
 
 		}
 		if(lifeLines.getLifeLines(2) == true)
 		{
-			this.redx3 = new JLabel("New label");
-			redx3.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\red x fianl 1.png"));
+			this.redx3 = new JLabel();
+			redx3.setIcon(new ImageIcon("img\\red x fianl 1.png"));
 			redx3.setBounds(661, 0, 110, 73);
 			add(redx3);
 		}
 
-		questionBackground = new JLabel("New label");
-		questionBackground.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\Question screen fixed.jpg"));
+		questionBackground = new JLabel();
+		questionBackground.setIcon(new ImageIcon("img\\Question screen fixed.jpg"));
 		questionBackground.setBounds(0, 0, 760,400);
 		questionBackground.setForeground(Color.WHITE);
 		add(questionBackground);

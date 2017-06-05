@@ -47,7 +47,7 @@ public class QuizCorrectView extends JPanel
 
 
         JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\correct edited.jpg"));
+        lblNewLabel.setIcon(new ImageIcon("img\\correct edited.jpg"));
         lblNewLabel.setBounds(0, 0, 759, 400);
         add(lblNewLabel);
     }

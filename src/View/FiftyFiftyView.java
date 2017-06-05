@@ -1,5 +1,6 @@
 package View;
 
+import Models.LifeLines;
 import Models.QuestionNumber;
 import Models.SetFinalGameQuestions;
 import Models.ShuffleAnswers;
@@ -16,6 +17,7 @@ public class FiftyFiftyView extends JPanel
     public SetFinalGameQuestions QuizQuestions = new SetFinalGameQuestions();
     public ShuffleAnswers answers = new ShuffleAnswers();
     public QuestionNumber qNumber = new QuestionNumber();
+    private LifeLines lifeLines = new LifeLines();
 
     private JButton answerButton1;
     private JButton answerButton2;
@@ -24,6 +26,9 @@ public class FiftyFiftyView extends JPanel
 
     private JLabel questionLabel;
     private JLabel fiftyFiftyBackground;
+    private JLabel redx1;
+    private JLabel redx2;
+    private JLabel redx3;
 
 
     public FiftyFiftyView(ActionListener w)
@@ -65,11 +70,33 @@ public class FiftyFiftyView extends JPanel
         add(exitButton);
 
         this.fiftyFiftyBackground = new JLabel();
-        fiftyFiftyBackground.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\fifty fifty.jpg"));
+        fiftyFiftyBackground.setIcon(new ImageIcon("img\\fifty fifty.jpg"));
         fiftyFiftyBackground.setBounds(0, 0, 760, 400);
         add(fiftyFiftyBackground);
 
 
+        if(lifeLines.getLifeLines(0) == true)
+        {
+            this.redx1 = new JLabel("New label");
+            redx1.setIcon(new ImageIcon("img\\red x fianl 1.png"));
+            redx1.setBounds(477, 0, 97, 73);
+            add(redx1);
+        }
+        if(lifeLines.getLifeLines(1) == true)
+        {
+            this.redx2 = new JLabel("New label");
+            redx2.setIcon(new ImageIcon("img\\red x fianl 1.png"));
+            redx2.setBounds(566, 3, 105, 66);
+            add(redx2);
+
+        }
+        if(lifeLines.getLifeLines(2) == true)
+        {
+            this.redx3 = new JLabel("New label");
+            redx3.setIcon(new ImageIcon("img\\red x fianl 1.png"));
+            redx3.setBounds(661, 0, 110, 73);
+            add(redx3);
+        }
 
     }
 }

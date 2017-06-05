@@ -62,7 +62,7 @@ public class QuizMenuView extends JPanel
 		add(new_Game_Button);
 
 		JLabel background = new JLabel("New label");
-		background.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\main menu.png"));
+		background.setIcon(new ImageIcon("img\\main menu.png"));
 		background.setBounds(0, 0, 760, 400);
 		add(background);
 	}

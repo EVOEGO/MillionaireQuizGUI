@@ -73,9 +73,15 @@ public class Game implements ActionListener
                 FiftyFiftyView FiftyFiftyView = new FiftyFiftyView(this);
                 card.addCardToStack(FiftyFiftyView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             }
-            else if(source.equalsIgnoreCase("askTheAudienceButton") && lifeLines.getLifeLines(1) == false)
+            else if(source.equalsIgnoreCase("phoneAFriendButton") && lifeLines.getLifeLines(1) == false)
             {
                 lifeLines.usedLifeLine(1);
+                PhoneAFriendView phoneAFriendView = new PhoneAFriendView(this);
+                card.addCardToStack(phoneAFriendView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
+            }
+            else if(source.equalsIgnoreCase("askTheAudienceButton") && lifeLines.getLifeLines(2) == false)
+            {
+                lifeLines.usedLifeLine(2);
                 askTheAudience.setAskTheAudience(question.getQuestionNumber());
                 AskTheAudienceView askTheAudienceView = new AskTheAudienceView(this);
                 card.addCardToStack(askTheAudienceView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());

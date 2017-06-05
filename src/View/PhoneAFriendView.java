@@ -7,67 +7,59 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Created by izaac on 4/06/2017.
+ * Created by izaac on 5/06/2017.
  */
-public class AskTheAudienceView extends JPanel
+public class PhoneAFriendView extends JPanel
 {
     private SetFinalGameQuestions QuizQuestions = new SetFinalGameQuestions();
     private ShuffleAnswers answers = new ShuffleAnswers();
     private QuestionNumber qNumber = new QuestionNumber();
     private LifeLines lifeLines = new LifeLines();
-    private AskTheAudience askTheAudience = new AskTheAudience();
+    private PhoneAFriend phoneAFriend = new PhoneAFriend();
 
-    private JButton exitButton;
-
-    private JLabel questionBackground;
+    private JLabel PhoneAFriendView;
+    private JLabel phoneAFriendLabel;
     private JLabel questionLabel;
     private JLabel redx1;
     private JLabel redx2;
     private JLabel redx3;
-    private JLabel answerPercentage1;
-    private JLabel answerPercentage2;
-    private JLabel answerPercentage3;
-    private JLabel answerPercentage4;
 
+    private JButton exitButton;
     private JButton answerButton4;
     private JButton answerButton3;
     private JButton answerButton2;
     private JButton answerButton1;
     private JButton fiftyFiftyButton;
-    private JButton phoneAFriendButton;
+    private JButton askTheAudienceButton;
 
-    public AskTheAudienceView(ActionListener w)
+    private JTextArea phoneAFriendText;
+
+    Font font = new Font("Dialog", Font.BOLD, 10);
+
+    public PhoneAFriendView(ActionListener w)
     {
         setLayout(null);
 
-        answers.shuffle();
+        this.phoneAFriendText = new JTextArea(phoneAFriend.getPhoneResponse("izaac", qNumber.getQuestionNumber()));
+        phoneAFriendText.setFont(font);
+        phoneAFriendText.setLineWrap(true);
+        phoneAFriendText.setWrapStyleWord(true);
+        phoneAFriendText.setEditable(false);
+        phoneAFriendText.setOpaque(false);
+        phoneAFriendText.setForeground(Color.white);
+        phoneAFriendText.setBounds(183, 101, 383, 76);
+        add(phoneAFriendText);
 
         this.questionLabel = new JLabel(QuizQuestions.getQuestion(qNumber.getQuestionNumber()).getQuestion());
         questionLabel.setBounds(115, 190, 526, 66);
         questionLabel.setForeground(Color.white);
         add(questionLabel);
 
-        this.answerPercentage1 = new JLabel(askTheAudience.getChancePercentage(0).toString() + "%");
-        answerPercentage1.setBounds(73, 290, 32, 14);
-        answerPercentage1.setForeground(Color.white);
-        add(answerPercentage1);
+//        this.phoneAFriendLabel = new JLabel(phoneAFriend.getPhoneResponse("izaac", qNumber.getQuestionNumber()));
+//        phoneAFriendLabel.setBounds(180, 99, 396, 80);
+//        add(phoneAFriendLabel);
 
-        this.answerPercentage2 = new JLabel(askTheAudience.getChancePercentage(1).toString() + "%");
-        answerPercentage2.setBounds(71, 347, 32, 14);
-        answerPercentage2.setForeground(Color.white);
-        add(answerPercentage2);
-
-        this.answerPercentage3 = new JLabel(askTheAudience.getChancePercentage(2).toString() + "%");
-        answerPercentage3.setBounds(463, 290, 32, 14);
-        answerPercentage3.setForeground(Color.white);
-        add(answerPercentage3);
-
-        this.answerPercentage4 = new JLabel(askTheAudience.getChancePercentage(3).toString() + "%");
-        answerPercentage4.setBounds(465, 348, 32, 14);
-        answerPercentage4.setForeground(Color.white);
-        add(answerPercentage4);
-
-        this.answerButton4 = new JButton("A " + answers.getShuffledAnswers().get(0));
+        this.answerButton4 = new JButton("C:   " + answers.getShuffledAnswers().get(0));
         answerButton4.setOpaque(false);
         answerButton4.setContentAreaFilled(false);
         answerButton4.setBorderPainted(false);
@@ -77,8 +69,7 @@ public class AskTheAudienceView extends JPanel
         answerButton4.addActionListener(w);
         add(answerButton4);
 
-
-        this.answerButton3 = new JButton(answers.getShuffledAnswers().get(1));
+        this.answerButton3 = new JButton("D:   " + answers.getShuffledAnswers().get(1));
         answerButton3.setOpaque(false);
         answerButton3.setContentAreaFilled(false);
         answerButton3.setBorderPainted(false);
@@ -88,7 +79,7 @@ public class AskTheAudienceView extends JPanel
         answerButton3.addActionListener(w);
         add(answerButton3);
 
-        this.answerButton2 = new JButton(answers.getShuffledAnswers().get(2));
+        this.answerButton2 = new JButton("B:   " + answers.getShuffledAnswers().get(2));
         answerButton2.setOpaque(false);
         answerButton2.setContentAreaFilled(false);
         answerButton2.setBorderPainted(false);
@@ -98,8 +89,7 @@ public class AskTheAudienceView extends JPanel
         answerButton2.addActionListener(w);
         add(answerButton2);
 
-
-        this.answerButton1 = new JButton(answers.getShuffledAnswers().get(3));
+        this.answerButton1 = new JButton("A:   " + answers.getShuffledAnswers().get(3));
         answerButton1.setOpaque(false);
         answerButton1.setContentAreaFilled(false);
         answerButton1.setBorderPainted(false);
@@ -109,7 +99,6 @@ public class AskTheAudienceView extends JPanel
         answerButton1.addActionListener(w);
         add(answerButton1);
 
-
         this.exitButton = new JButton();
         exitButton.setOpaque(false);
         exitButton.setContentAreaFilled(false);
@@ -118,15 +107,6 @@ public class AskTheAudienceView extends JPanel
         exitButton.setName("exitButton");
         exitButton.addActionListener(w);
         add(exitButton);
-
-        this.fiftyFiftyButton = new JButton();
-        fiftyFiftyButton.setOpaque(false);
-        fiftyFiftyButton.setContentAreaFilled(false);
-        fiftyFiftyButton.setBorderPainted(false);
-        fiftyFiftyButton.setBounds(498, 25, 65, 31);
-        fiftyFiftyButton.setName("fiftyFiftyButton");
-        fiftyFiftyButton.addActionListener(w);
-        add(fiftyFiftyButton);
 
 
         if(lifeLines.getLifeLines(0) == false)
@@ -141,16 +121,17 @@ public class AskTheAudienceView extends JPanel
             add(fiftyFiftyButton);
         }
 
-        if(lifeLines.getLifeLines(1))
+        if(lifeLines.getLifeLines(2) == false)
         {
-            this.phoneAFriendButton = new JButton();
-            phoneAFriendButton.setOpaque(false);
-            phoneAFriendButton.setContentAreaFilled(false);
-            phoneAFriendButton.setBorderPainted(false);
-            phoneAFriendButton.setBounds(584, 21, 76, 42);
-            phoneAFriendButton.setName("phoneAFriendButton");
-            phoneAFriendButton.addActionListener(w);
-            add(phoneAFriendButton);
+            this.askTheAudienceButton = new JButton();
+            askTheAudienceButton.setOpaque(false);
+            askTheAudienceButton.setContentAreaFilled(false);
+            askTheAudienceButton.setBorderPainted(false);
+            askTheAudienceButton.setBounds(673, 22, 76, 42);
+            askTheAudienceButton.setName("askTheAudienceButton");
+            askTheAudienceButton.addActionListener(w);
+            add(askTheAudienceButton);
+
         }
 
         if(lifeLines.getLifeLines(0) == true)
@@ -176,11 +157,9 @@ public class AskTheAudienceView extends JPanel
             add(redx3);
         }
 
-        questionBackground = new JLabel("New label");
-        questionBackground.setIcon(new ImageIcon("img\\Question screen fixed.jpg"));
-        questionBackground.setBounds(0, 0, 760,400);
-        questionBackground.setForeground(Color.WHITE);
-        add(questionBackground);
-
+        this.PhoneAFriendView = new JLabel();
+        PhoneAFriendView.setIcon(new ImageIcon("img\\PhoneAFriend.jpg"));
+        PhoneAFriendView.setBounds(0, 0, 760,400);
+        add(PhoneAFriendView);
     }
 }

@@ -12,7 +12,7 @@ public class QuizWinningsView extends JPanel
         setLayout(null);
 
         JLabel winningsBackground = new JLabel("");
-        winningsBackground.setIcon(new ImageIcon("C:\\Users\\izaac\\Downloads\\Who-Wants-To-Be-A-Millionaire.jpeg"));
+        winningsBackground.setIcon(new ImageIcon("img\\Who-Wants-To-Be-A-Millionaire.jpeg"));
         add(winningsBackground);
 
     }

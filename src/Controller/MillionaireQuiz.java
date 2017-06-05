@@ -446,7 +446,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
 //        getContentPane().add(this.correctView, "Correct");
 //        getContentPane().add(this.incorrectView, "Incorrect");
 //        getContentPane().add(this.winningsView, "Winnings");
-            setSize(770, 440);
+            setSize(760, 430);
             setResizable(false);
             setVisible(true);
 
