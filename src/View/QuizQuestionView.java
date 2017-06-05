@@ -50,7 +50,7 @@ public class QuizQuestionView extends JPanel
 		questionLabel.setForeground(Color.white);
 		add(questionLabel);
 
-		this.answerButton4 = new JButton("C:   " + answers.getShuffledAnswers().get(0));
+		this.answerButton4 = new JButton("<html> C:   " + answers.getShuffledAnswers().get(0)+ "</html>");
 		answerButton4.setOpaque(false);
 		answerButton4.setContentAreaFilled(false);
 		answerButton4.setBorderPainted(false);
@@ -109,7 +109,7 @@ public class QuizQuestionView extends JPanel
 			fiftyFiftyButton.setOpaque(false);
 			fiftyFiftyButton.setContentAreaFilled(false);
 			fiftyFiftyButton.setBorderPainted(false);
-			fiftyFiftyButton.setBounds(498, 25, 65, 31);
+			fiftyFiftyButton.setBounds(498, 25, 76, 42);
 			fiftyFiftyButton.setName("fiftyFiftyButton");
 			fiftyFiftyButton.addActionListener(w);
 			add(fiftyFiftyButton);

@@ -59,7 +59,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
         boolean correctInput = false;
         /*i made this varaible to make sure that the input that was being entered was correct and could be used in a while loop
         * to check to verify that this is true. Figured that booleans would be the best varaible type to use.*/
-        highScores score = new highScores();
+        HighScores score = new HighScores();
 
         printMENU();
         //I added this method so that i didn't have to have big blocks of system.out. It made my code alot easier to work with
@@ -115,7 +115,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
     public static String LOGIN_VIEW() {
         Scanner scan = new Scanner(System.in);
         boolean checker = false;
-        highScores score = new highScores();
+        HighScores score = new HighScores();
 
         System.out.println("               ");
         System.out.print("                                                                 Username: ");
@@ -269,7 +269,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
                     System.out.println("Congratulations you took the money and ended up with " + score(roundNumber));
                     System.out.println("Goodluck and thank for you for playing ");
                     System.out.println("WHO WANTS TO BE A MILLIONAIRE!!!!");
-                    highScores score = new highScores();
+                    HighScores score = new HighScores();
                     prize = score(roundNumber);
                     score.saveHighScore(prize, username);
                     System.exit(0);
@@ -362,7 +362,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
                     System.out.println("$" + score(roundNumber));
                 }
             } else if (round.quieryAnswer(answer, roundNumber) == false) {
-                highScores score = new highScores();
+                HighScores score = new HighScores();
                 prize = score(roundNumber);
                 score.saveHighScore(prize, username);
                 System.out.println("incorrect");
@@ -411,9 +411,14 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
 
         } else if (source.equals("scoreButton"))
         {
-            System.out.println("in progress");
-            System.exit(0);
-        } else if (source.equals("exitButton"))
+            HighScoreView highScoreView = new HighScoreView(this);
+            card.addCardToStack(highScoreView, "highscore");
+        }
+        else if (source.equalsIgnoreCase("menuButton"))
+        {
+            card.showCard("Menu");
+        }
+            else if (source.equals("exitButton"))
         {
             System.exit(0);
         }
@@ -457,12 +462,42 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
     {
 
         QuestionDataBase NewQuiz = new QuestionDataBase();
+        //HighScores highScores = new HighScores();
         SetFinalGameQuestions set = new SetFinalGameQuestions();
         QuizDataBase_Connection newConnection = new QuizDataBase_Connection();
         newConnection.establishConnection();
         NewQuiz.queryDataBase();
+        NewQuiz.queryHighScoreDataBase();
         set.setFinalQuestions();
 
+           //QuizDataBase_Connection qdb = new QuizDataBase_Connection(); //qdb stands for "Quiz Data Base"
+//        Connection connection =null;
+//
+//        try
+//        {
+//            connection = QuizDataBase_Connection.establishConnection();
+//
+//            if(connection != null)
+//            {
+//                System.out.println("Connection Successful");
+//            }
+//
+//            newConnection.populateHighscores();
+//        }
+//        catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        finally {
+//            if(connection != null)
+//            {
+//                try {
+//                    connection.close();
+//                } catch (SQLException e) {
+//
+//                }
+//            }
+//        }
 
         MillionaireQuiz quiz = new MillionaireQuiz();
     }
@@ -664,7 +699,9 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
 
 
 
-        /*QuizDataBase_Connection qdb = new QuizDataBase_Connection(); //qdb stands for "Quiz Data Base"
+
+
+           /*QuizDataBase_Connection qdb = new QuizDataBase_Connection(); //qdb stands for "Quiz Data Base"
         Connection connection =null;
 
         try
@@ -676,7 +713,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
                 System.out.println("Connection Successful");
             }
 
-            qdb.populateDataBase();
+            newConnection.populateHighscores();
         }
         catch(Exception e)
         {
@@ -691,8 +728,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
 
                 }
             }
-        }
-        */
+        }*/
 
 
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class QuestionDataBase
 {
     private static ArrayList<Attributes> Quiz_Questions = new ArrayList<Attributes>();
+    private static ArrayList<ScoreAttributes> SCORES = new ArrayList<ScoreAttributes>();
     QuizDataBase_Connection connect = new QuizDataBase_Connection();
     Statement statement;
     Connection conn;
@@ -35,19 +36,49 @@ public class QuestionDataBase
                 attribute.setIncorrect3(rs.getString("INCORRECT3"));
                 Quiz_Questions.add(attribute);
             }
+            statement.close();
         }
 
         catch(SQLException e)
         {
             e.printStackTrace();
         }
-//        finally
-//        {
-//            if(statement != null)
-//            {
-//                statement.close();
-//            }
-//        }
+    }
+
+    public void queryHighScoreDataBase()
+    {
+        statement = null;
+        String query = "select *" + "from " + connect.getScoreDatabaseName();
+
+        try
+        {
+            statement = connect.getConnection().createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next())
+            {
+
+                ScoreAttributes scoreAttributes = new ScoreAttributes();
+
+                scoreAttributes.setUsername(rs.getString("USERNAME"));
+                scoreAttributes.setWinnings(Integer.parseInt(rs.getString("WINNINGS")));
+                SCORES.add(scoreAttributes);
+            }
+            statement.close();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+
+
+
+    }
+
+    public ArrayList<ScoreAttributes> getSCORES()
+    {
+        return this.SCORES;
     }
 
     public ArrayList<Attributes> getQuiz_Questions()

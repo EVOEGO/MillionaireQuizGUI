@@ -39,6 +39,8 @@ public class Game implements ActionListener
         QuizQuestions.setFinalQuestions();
         lifeLines.setLifeLines();
         userName.setUserInput(true);
+        question_Number = 0;
+        question.setCurrentNumber(question_Number);
 
         usernameView = new UsernameView(this);
         card.addCardToStack(usernameView, "username");
@@ -86,8 +88,10 @@ public class Game implements ActionListener
                 card.addCardToStack(NextQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             } else if (source.equalsIgnoreCase("returnToMenuBTN")) {
                 card.showCard("Menu");
-            } else if (source.equalsIgnoreCase("exitButton")) {
-                card.showCard("Menu");
+            } else if (source.equalsIgnoreCase("exitButton"))
+            {
+                ExitButtonView exitButtonView = new ExitButtonView(this);
+                card.addCardToStack(exitButtonView, "ExitMessage");
             }
             else if(source.equalsIgnoreCase("fiftyFiftyButton") && lifeLines.getLifeLines(0) == false) {
                 lifeLines.usedLifeLine(0);
@@ -106,6 +110,15 @@ public class Game implements ActionListener
                 askTheAudience.setAskTheAudience(question.getQuestionNumber());
                 AskTheAudienceView askTheAudienceView = new AskTheAudienceView(this);
                 card.addCardToStack(askTheAudienceView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
+            }
+            else if(source.equalsIgnoreCase("mainMenuButton"))
+            {
+                HighScoreView highScoreView = new HighScoreView(this);
+                card.addCardToStack(highScoreView, "highscores");
+            }
+            else if(source.equalsIgnoreCase("menuButton"))
+            {
+                card.showCard("Menu");
             }
             else
             {

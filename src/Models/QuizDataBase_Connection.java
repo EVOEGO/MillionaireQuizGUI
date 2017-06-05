@@ -1,11 +1,9 @@
 package Models;
 
-import javax.management.Attribute;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 /**
  * Created by izaac on 15/05/2017.
@@ -17,11 +15,11 @@ public class QuizDataBase_Connection
     public static final String pass = "izaac";
     public static Connection connection;
     public static int row_Number = 0;
-    public static final String databaseName = "IZAAC.Quiz_DataBase";;
+    public static final String databaseName = "IZAAC.Quiz_DataBase";
+    public static final String highScoreDatabase = "IZAAC.Quiz_HighScores";
 
 
     AttributeDataBase data = new AttributeDataBase();
-    highScores score = new highScores();
 
 
     public static Connection establishConnection()
@@ -84,19 +82,39 @@ public class QuizDataBase_Connection
 
     public void populateHighscores()
     {
-       /* try
+       try
         {
             Statement statement = connection.createStatement();
 
-            String database_table = "IZAAC.QUIZ_HIGHSCORES";
-            String sqlCreate = "create table " +database_table+ " (";
+            String database_table = "IZAAC.Quiz_HIGHSCORES";
+           // String sqlCreate = "create table " +database_table+ " (";
 
-            statement.executeUpdate(sqlCreate);
+            //String sqlCreate = "create table " +database_table+ " (Username varchar(255), Winnings varchar(255))";
+
+            //statement.executeUpdate(sqlCreate);
+
+            String insert_scores = "insert into " + highScoreDatabase + " values";
+            insert_scores = insert_scores.concat("('Izaac', '1000000'),");
+            insert_scores = insert_scores.concat("('Bob', '250000'),");
+            insert_scores = insert_scores.concat("('Jim', '100000'),");
+            insert_scores = insert_scores.concat("('Mike', '50000'),");
+            insert_scores = insert_scores.concat("('Jeff', '25000'),");
+            insert_scores = insert_scores.concat("('Ryan', '25000'),");
+            insert_scores = insert_scores.concat("('Andrew', '12500'),");
+            insert_scores = insert_scores.concat("('Lisa', '100000'),");
+            insert_scores = insert_scores.concat("('Marge', '10000'),");
+            insert_scores = insert_scores.concat("('Homer', '1000')");
+            statement.executeUpdate(insert_scores);
+
+            statement.close();
+
+           // System.out.println("Highscores Created!!!!");
+
 
         }
         catch(SQLException t){
             t.printStackTrace();
-        }*/
+        }
     }
 
     public Connection getConnection()
@@ -112,6 +130,11 @@ public class QuizDataBase_Connection
     public String getDataBaseName()
     {
         return this.databaseName;
+    }
+
+    public String getScoreDatabaseName()
+    {
+        return this.highScoreDatabase;
     }
 
 }

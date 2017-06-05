@@ -20,32 +20,41 @@
     <schema id="12" parent="1" name="SYSPROC"/>
     <schema id="13" parent="1" name="SYSSTAT"/>
     <table id="14" parent="3" name="QUIZ_DATABASE"/>
-    <column id="15" parent="14" name="UUID">
+    <table id="15" parent="3" name="QUIZ_HIGHSCORES"/>
+    <column id="16" parent="14" name="UUID">
       <Position>1</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="16" parent="14" name="DIFFICULTY">
+    <column id="17" parent="14" name="DIFFICULTY">
       <Position>2</Position>
       <DataType>INTEGER(10)|4</DataType>
     </column>
-    <column id="17" parent="14" name="QUESTION">
+    <column id="18" parent="14" name="QUESTION">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="18" parent="14" name="ANSWER">
+    <column id="19" parent="14" name="ANSWER">
       <Position>4</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="19" parent="14" name="INCORRECT1">
+    <column id="20" parent="14" name="INCORRECT1">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="20" parent="14" name="INCORRECT2">
+    <column id="21" parent="14" name="INCORRECT2">
       <Position>6</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="21" parent="14" name="INCORRECT3">
+    <column id="22" parent="14" name="INCORRECT3">
       <Position>7</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="23" parent="15" name="USERNAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="24" parent="15" name="WINNINGS">
+      <Position>2</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
   </database-model>

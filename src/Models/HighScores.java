@@ -4,6 +4,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -12,7 +16,7 @@ import java.util.Scanner;
  * Created by izaac on 30/03/2017.
  * This class handles all the processes in storing and reading in the games highscores
  */
-public class highScores {
+public class HighScores {
     private static final String FILE_NAME = "input/highscores";
     private String input;
     private String line;
@@ -21,10 +25,6 @@ public class highScores {
     private ArrayList<String> HIGH_SCORES = new ArrayList();
     private ArrayList<Integer> SCORE_NUMBER = new ArrayList<Integer>();
     private ArrayList<String> SORTED_SCORES = new ArrayList<String>();
-
-    public highScores() {
-        this.SORTED_SCORES = new ArrayList<>();
-    }
 
     /*saveHighScore method will write to the highscores file. So that i can keep a running count
     * of the current highscores.*/
@@ -51,6 +51,7 @@ public class highScores {
         try //used try catch methods so that i handle the errors instead of ignoring them
         {
             Scanner scan = new Scanner(new File(FILE_NAME));
+            SORTED_SCORES = new ArrayList<String>();
 
             while (scan.hasNextLine()) {
                 line = scan.nextLine();

@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Mon Jun 05 19:26:49 NZST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-7726-2b13-0000069a90e0 
+Tue Jun 06 03:30:54 NZST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015c-78e1-5ef7-0000069b0088 
 on database directory C:\Users\izaac\IdeaProjects\MillionaireQuizGUI\DerbyDatabase with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/izaac/IdeaProjects/MillionaireQuizGUI/lib/derby.jar
 java.vendor=Oracle Corporation
