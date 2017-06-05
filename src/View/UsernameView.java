@@ -24,9 +24,9 @@ public class UsernameView extends JPanel
 
     Font font = new Font("Dialog", Font.BOLD, 15);
 
-    public JTextArea getUsername()
+    public JTextField getUsername()
     {
-        return this.usernameText;
+        return this.usernameField;
     }
 
     public UsernameView(ActionListener w)
@@ -44,10 +44,15 @@ public class UsernameView extends JPanel
         add(usernameText);
 
         this.usernameField = new JTextField();
-        setOpaque(false);
+        usernameField.setOpaque(false);
+
         usernameField.setBounds(206, 209, 343, 34);
         usernameField.setColumns(10);
+        usernameField.setFont(font);
+        usernameField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        usernameField.setHorizontalAlignment(JTextField.CENTER);
         usernameField.setName("usernameField");
+        usernameField.setForeground(Color.white);
         add(usernameField);
 
         this.submitUsername = new JButton("Submit");
@@ -63,7 +68,7 @@ public class UsernameView extends JPanel
 
         if(userName.getUserInput() == false)
         {
-            this.incorrectInput = new JTextArea();
+            this.incorrectInput = new JTextArea("Incorrect Input, Please try again");
             incorrectInput.setFont(font);
             incorrectInput.setLineWrap(true);
             incorrectInput.setWrapStyleWord(true);
@@ -81,4 +86,6 @@ public class UsernameView extends JPanel
 
 
     }
+
+
 }

@@ -1,5 +1,7 @@
 package Models;
 
+import Controller.Game;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -52,7 +54,7 @@ public class PhoneAFriend
                 }
             }
         } else {
-            friendAnswer = friendAnswer.concat("Sup man " + username + " its your friend " + friendNames.get(getFriendName()) + "here, i looked at the question" + "\n");
+            friendAnswer = friendAnswer.concat("Sup man " + username + " its your friend " + friendNames.get(getFriendName()) + " here, i looked at the question" + "\n");
             friendAnswer = friendAnswer.concat("your stuck on, and i think the answer is | " + answers.getShuffledAnswers().get(randomNumber()) + " | hope that helps! later man!");
 
             return friendAnswer;

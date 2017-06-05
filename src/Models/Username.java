@@ -20,14 +20,4 @@ public class Username
         return this.usernameInput;
     }
 
-    public void setUsernameText()
-    {
-        usernameText = this.usernameText;
-// return this.usernameView.getUsername().getText().toString();
-    }
-
-    public String getUsernameText()
-    {
-        return this.usernameText;
-    }
 }

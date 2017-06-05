@@ -36,11 +36,11 @@ public class PhoneAFriendView extends JPanel
 
     Font font = new Font("Dialog", Font.BOLD, 10);
 
-    public PhoneAFriendView(ActionListener w)
+    public PhoneAFriendView(ActionListener w, String username)
     {
         setLayout(null);
 
-        this.phoneAFriendText = new JTextArea(phoneAFriend.getPhoneResponse("izaac", qNumber.getQuestionNumber()));
+        this.phoneAFriendText = new JTextArea(phoneAFriend.getPhoneResponse(username, qNumber.getQuestionNumber()));
         phoneAFriendText.setFont(font);
         phoneAFriendText.setLineWrap(true);
         phoneAFriendText.setWrapStyleWord(true);
@@ -54,10 +54,6 @@ public class PhoneAFriendView extends JPanel
         questionLabel.setBounds(115, 190, 526, 66);
         questionLabel.setForeground(Color.white);
         add(questionLabel);
-
-//        this.phoneAFriendLabel = new JLabel(phoneAFriend.getPhoneResponse("izaac", qNumber.getQuestionNumber()));
-//        phoneAFriendLabel.setBounds(180, 99, 396, 80);
-//        add(phoneAFriendLabel);
 
         this.answerButton4 = new JButton("C:   " + answers.getShuffledAnswers().get(0));
         answerButton4.setOpaque(false);

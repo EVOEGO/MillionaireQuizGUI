@@ -20,6 +20,8 @@ public class Game implements ActionListener
     private LifeLines lifeLines = new LifeLines();
     private AskTheAudience askTheAudience = new AskTheAudience();
     private Username userName = new Username();
+    private UsernameView usernameView;
+    private String UserName;
 
     private String source;
     private Card card;
@@ -36,8 +38,9 @@ public class Game implements ActionListener
         this.card = card;
         QuizQuestions.setFinalQuestions();
         lifeLines.setLifeLines();
+        userName.setUserInput(true);
 
-        UsernameView usernameView = new UsernameView(this);
+        usernameView = new UsernameView(this);
         card.addCardToStack(usernameView, "username");
 
     }
@@ -62,23 +65,19 @@ public class Game implements ActionListener
             }
             else if(source.equalsIgnoreCase("submitUsernameButton"))
             {
-                userName.setUserInput(true);
 
-                String check = userName.getUsernameText();
-                char name = ' ';
+                UserName = usernameView.getUsername().getText().toString();
 
-                for(int x = 0; x < check.length(); x++)
+                if(UserName.equalsIgnoreCase(""))
                 {
-                    if(check.charAt(x) == name)
-                    {
-                        userName.setUserInput(false);
-                        card.showCard("userName");
-                    }
-                    else
-                    {
-                        QuizQuestionView FirstQuestionView = new QuizQuestionView(this);
-                        card.addCardToStack(FirstQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
-                    }
+                    userName.setUserInput(false);
+                    usernameView = new UsernameView(this);
+                    card.addCardToStack(usernameView, "userNAME");
+                }
+                else
+                {
+                    QuizQuestionView FirstQuestionView = new QuizQuestionView(this);
+                    card.addCardToStack(FirstQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
                 }
             }
             else if (source.equalsIgnoreCase("nextQuestionButton")) {
@@ -98,7 +97,7 @@ public class Game implements ActionListener
             else if(source.equalsIgnoreCase("phoneAFriendButton") && lifeLines.getLifeLines(1) == false)
             {
                 lifeLines.usedLifeLine(1);
-                PhoneAFriendView phoneAFriendView = new PhoneAFriendView(this);
+                PhoneAFriendView phoneAFriendView = new PhoneAFriendView(this, UserName);
                 card.addCardToStack(phoneAFriendView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             }
             else if(source.equalsIgnoreCase("askTheAudienceButton") && lifeLines.getLifeLines(2) == false)
@@ -114,6 +113,7 @@ public class Game implements ActionListener
                 card.addCardToStack(incorrectView, "Incorrect");
             }
     }
+
 
 }
 
