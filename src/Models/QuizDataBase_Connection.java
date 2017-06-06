@@ -17,6 +17,7 @@ public class QuizDataBase_Connection
     public static int row_Number = 0;
     public static final String databaseName = "IZAAC.Quiz_DataBase";
     public static final String highScoreDatabase = "IZAAC.Quiz_HighScores";
+    //private QuestionDataBase questionDataBase = new QuestionDataBase();
 
 
     AttributeDataBase data = new AttributeDataBase();
@@ -94,6 +95,7 @@ public class QuizDataBase_Connection
             //statement.executeUpdate(sqlCreate);
 
             String insert_scores = "insert into " + highScoreDatabase + " values";
+
             insert_scores = insert_scores.concat("('Izaac', '1000000'),");
             insert_scores = insert_scores.concat("('Bob', '250000'),");
             insert_scores = insert_scores.concat("('Jim', '100000'),");
@@ -116,6 +118,28 @@ public class QuizDataBase_Connection
             t.printStackTrace();
         }
     }
+
+    public void updateHighScoreDatabase(String username, int winnings)
+    {
+        try
+        {
+            Statement statement = connection.createStatement();
+            String database_table = "IZAAC.Quiz_HIGHSCORES";
+
+            String insert_Update = "insert into " + highScoreDatabase + " values";
+            insert_Update = insert_Update.concat("('" + username + "', '" + String.valueOf(winnings) + "')");
+
+            statement.executeUpdate(insert_Update);
+
+            statement.close();
+
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     public Connection getConnection()
     {

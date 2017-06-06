@@ -109,7 +109,7 @@ public class QuizQuestionView extends JPanel
 			fiftyFiftyButton.setOpaque(false);
 			fiftyFiftyButton.setContentAreaFilled(false);
 			fiftyFiftyButton.setBorderPainted(false);
-			fiftyFiftyButton.setBounds(498, 25, 76, 42);
+			fiftyFiftyButton.setBounds(498, 21, 76, 42);
 			fiftyFiftyButton.setName("fiftyFiftyButton");
 			fiftyFiftyButton.addActionListener(w);
 			add(fiftyFiftyButton);

@@ -43,7 +43,7 @@ public class HighScoreView extends JPanel
         menu.addActionListener(w);
         add(menu);
 
-        this.firstButton = new JButton(questionDataBase.getSCORES().get(0).getUsername() + questionDataBase.getSCORES().get(0).getWinnings());
+        this.firstButton = new JButton(questionDataBase.getSCORES().get(0).getUsername() + " :" + questionDataBase.getSCORES().get(0).getWinnings());
         firstButton.setBounds(74, 108, 218, 31);
         firstButton.setOpaque(false);
         firstButton.setContentAreaFilled(false);
@@ -51,7 +51,7 @@ public class HighScoreView extends JPanel
         firstButton.setForeground(Color.white);
         add(firstButton);
 
-        this.secondButton = new JButton(questionDataBase.getSCORES().get(1).getUsername() + questionDataBase.getSCORES().get(1).getWinnings());
+        this.secondButton = new JButton(questionDataBase.getSCORES().get(1).getUsername() + " :" + questionDataBase.getSCORES().get(1).getWinnings());
         secondButton.setBounds(75, 165, 218, 31);
         secondButton.setOpaque(false);
         secondButton.setContentAreaFilled(false);
@@ -59,7 +59,7 @@ public class HighScoreView extends JPanel
         secondButton.setForeground(Color.white);
         add(secondButton);
 
-        this.thirdButton = new JButton(questionDataBase.getSCORES().get(2).getUsername() + questionDataBase.getSCORES().get(2).getWinnings());
+        this.thirdButton = new JButton(questionDataBase.getSCORES().get(2).getUsername() + " :" + questionDataBase.getSCORES().get(2).getWinnings());
         thirdButton.setBounds(75, 223, 218, 31);
         thirdButton.setOpaque(false);
         thirdButton.setContentAreaFilled(false);
@@ -67,7 +67,7 @@ public class HighScoreView extends JPanel
         thirdButton.setForeground(Color.white);
         add(thirdButton);
 
-        this.fourthButton = new JButton(questionDataBase.getSCORES().get(3).getUsername() + questionDataBase.getSCORES().get(3).getWinnings());
+        this.fourthButton = new JButton(questionDataBase.getSCORES().get(3).getUsername() + " :" + questionDataBase.getSCORES().get(3).getWinnings());
         fourthButton.setBounds(76, 281, 218, 31);
         fourthButton.setOpaque(false);
         fourthButton.setContentAreaFilled(false);
@@ -75,7 +75,7 @@ public class HighScoreView extends JPanel
         fourthButton.setForeground(Color.white);
         add(fourthButton);
 
-        this.fifthButton = new JButton(questionDataBase.getSCORES().get(4).getUsername() + questionDataBase.getSCORES().get(4).getWinnings());
+        this.fifthButton = new JButton(questionDataBase.getSCORES().get(4).getUsername() + " :" + questionDataBase.getSCORES().get(4).getWinnings());
         fifthButton.setBounds(73, 339, 218, 31);
         fifthButton.setOpaque(false);
         fifthButton.setContentAreaFilled(false);
@@ -83,7 +83,7 @@ public class HighScoreView extends JPanel
         fifthButton.setForeground(Color.white);
         add(fifthButton);
 
-        this.sixthButton = new JButton(questionDataBase.getSCORES().get(5).getUsername() + questionDataBase.getSCORES().get(5).getWinnings());
+        this.sixthButton = new JButton(questionDataBase.getSCORES().get(5).getUsername() + " :" + questionDataBase.getSCORES().get(5).getWinnings());
         sixthButton.setBounds(465, 108, 218, 31);
         sixthButton.setOpaque(false);
         sixthButton.setContentAreaFilled(false);
@@ -91,7 +91,7 @@ public class HighScoreView extends JPanel
         sixthButton.setForeground(Color.white);
         add(sixthButton);
 
-        this.seventhButton = new JButton(questionDataBase.getSCORES().get(6).getUsername() + questionDataBase.getSCORES().get(6).getWinnings());
+        this.seventhButton = new JButton(questionDataBase.getSCORES().get(6).getUsername() + " :" + questionDataBase.getSCORES().get(6).getWinnings());
         seventhButton.setBounds(465, 165, 218, 31);
         seventhButton.setOpaque(false);
         seventhButton.setContentAreaFilled(false);
@@ -99,7 +99,7 @@ public class HighScoreView extends JPanel
         seventhButton.setForeground(Color.white);
         add(seventhButton);
 
-        this.eighthButton = new JButton(questionDataBase.getSCORES().get(7).getUsername() + questionDataBase.getSCORES().get(7).getWinnings());
+        this.eighthButton = new JButton(questionDataBase.getSCORES().get(7).getUsername() + " :" + questionDataBase.getSCORES().get(7).getWinnings());
         eighthButton.setBounds(465, 223, 218, 31);
         eighthButton.setOpaque(false);
         eighthButton.setContentAreaFilled(false);
@@ -107,7 +107,7 @@ public class HighScoreView extends JPanel
         eighthButton.setForeground(Color.white);
         add(eighthButton);
 
-        this.ninthButton = new JButton(questionDataBase.getSCORES().get(8).getUsername() + questionDataBase.getSCORES().get(8).getWinnings());
+        this.ninthButton = new JButton(questionDataBase.getSCORES().get(8).getUsername() + " :" + questionDataBase.getSCORES().get(8).getWinnings());
         ninthButton.setBounds(465, 281, 218, 31);
         ninthButton.setOpaque(false);
         ninthButton.setContentAreaFilled(false);
@@ -115,7 +115,7 @@ public class HighScoreView extends JPanel
         ninthButton.setForeground(Color.white);
         add(ninthButton);
 
-        this.tenthButton = new JButton(questionDataBase.getSCORES().get(9).getUsername() + questionDataBase.getSCORES().get(9).getWinnings());
+        this.tenthButton = new JButton(questionDataBase.getSCORES().get(9).getUsername() + " :" + questionDataBase.getSCORES().get(9).getWinnings());
         tenthButton.setBounds(465, 339, 218, 31);
         tenthButton.setOpaque(false);
         tenthButton.setContentAreaFilled(false);

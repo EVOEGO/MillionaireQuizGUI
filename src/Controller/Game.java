@@ -14,12 +14,15 @@ import java.util.ArrayList;
 public class Game implements ActionListener
 {
     private QuestionDataBase CompleteQuizQuestions = new QuestionDataBase();
+    private QuizDataBase_Connection con = new QuizDataBase_Connection();
     private SetFinalGameQuestions QuizQuestions = new SetFinalGameQuestions();
     private ShuffleAnswers SortedAnswers = new ShuffleAnswers();
     private QuestionNumber question = new QuestionNumber();
     private LifeLines lifeLines = new LifeLines();
     private AskTheAudience askTheAudience = new AskTheAudience();
     private Username userName = new Username();
+    private HighScores highScores = new HighScores();
+    private PrizeMoney prizeMoney = new PrizeMoney();
     private UsernameView usernameView;
     private String UserName;
 
@@ -41,7 +44,6 @@ public class Game implements ActionListener
         userName.setUserInput(true);
         question_Number = 0;
         question.setCurrentNumber(question_Number);
-
         usernameView = new UsernameView(this);
         card.addCardToStack(usernameView, "username");
 
@@ -113,6 +115,8 @@ public class Game implements ActionListener
             }
             else if(source.equalsIgnoreCase("mainMenuButton"))
             {
+                highScores.setNewHighScores(UserName, prizeMoney.getPrizeMoney(question.getQuestionNumber()));
+                con.updateHighScoreDatabase(UserName, prizeMoney.getPrizeMoney(question.getQuestionNumber()));
                 HighScoreView highScoreView = new HighScoreView(this);
                 card.addCardToStack(highScoreView, "highscores");
             }

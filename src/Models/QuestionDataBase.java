@@ -2,6 +2,7 @@ package Models;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by izaac on 17/05/2017.
@@ -10,6 +11,7 @@ public class QuestionDataBase
 {
     private static ArrayList<Attributes> Quiz_Questions = new ArrayList<Attributes>();
     private static ArrayList<ScoreAttributes> SCORES = new ArrayList<ScoreAttributes>();
+   // private HighScores highScores = new HighScores();
     QuizDataBase_Connection connect = new QuizDataBase_Connection();
     Statement statement;
     Connection conn;
@@ -64,6 +66,9 @@ public class QuestionDataBase
                 scoreAttributes.setWinnings(Integer.parseInt(rs.getString("WINNINGS")));
                 SCORES.add(scoreAttributes);
             }
+
+            Collections.sort(SCORES);
+            //Collections.reverse(SCORES);
             statement.close();
         }
         catch(SQLException e)

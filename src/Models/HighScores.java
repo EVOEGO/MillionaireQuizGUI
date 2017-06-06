@@ -4,10 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -25,6 +21,9 @@ public class HighScores {
     private ArrayList<String> HIGH_SCORES = new ArrayList();
     private ArrayList<Integer> SCORE_NUMBER = new ArrayList<Integer>();
     private ArrayList<String> SORTED_SCORES = new ArrayList<String>();
+    private ArrayList<ScoreAttributes> HighScores = new ArrayList<ScoreAttributes>();
+    private QuestionDataBase questionDataBase =new QuestionDataBase();
+    private ScoreAttributes scoreAttributes = new ScoreAttributes();
 
     /*saveHighScore method will write to the highscores file. So that i can keep a running count
     * of the current highscores.*/
@@ -93,6 +92,21 @@ public class HighScores {
     stored inside the arraylist.*/
     public ArrayList<String> get_SORTED_SCORES() {
         return this.SORTED_SCORES;
+    }
+
+    public ArrayList<ScoreAttributes> getHighScores()
+    {
+       return this.HighScores;
+    }
+
+    public void setNewHighScores(String username, int winnings)
+    {
+        scoreAttributes.setUsername(username);
+        scoreAttributes.setWinnings(winnings);
+        questionDataBase.getSCORES().add(scoreAttributes);
+        //HighScores.remove(HighScores.get(10));
+        Collections.sort(questionDataBase.getSCORES());
+
     }
 
 }
