@@ -16,6 +16,10 @@ public class gameSoundView
     public static final String exitSound = "gameSounds//end.wav";
     public static final String incorrectSound = "gameSounds//wrongAnswer.wav";
     public static final String fiftyFiftySound = "gameSounds//50_50.wav";
+    public static final String askTheAudienceSound = "gameSounds//asktheAudience.wav";
+    public static final String phoneAFriendSound = "gameSounds//phoneafriend.wav";
+    public static final String millionDollarSound = "gameSounds//outro.wav";
+
 
     private Clip sound;
 

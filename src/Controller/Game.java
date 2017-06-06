@@ -62,6 +62,8 @@ public class Game implements ActionListener
 
             if(question.getQuestionNumber() == 14 && source.equalsIgnoreCase(QuizQuestions.getQuestion(question.getQuestionNumber()).getAnswer()))
             {
+                sounds.stop();
+                sounds.playGameSound(millionDollarSound);
                 ExitButtonView exitButtonView = new ExitButtonView(this, question.getQuestionNumber());
                 card.addCardToStack(exitButtonView, "exitButton");
             }
@@ -122,12 +124,16 @@ public class Game implements ActionListener
             else if(source.equalsIgnoreCase("phoneAFriendButton") && lifeLines.getLifeLines(1) == false)
             {
                 lifeLines.usedLifeLine(1);
+                sounds.stop();
+                sounds.playGameSound(phoneAFriendSound);
                 PhoneAFriendView phoneAFriendView = new PhoneAFriendView(this, UserName);
                 card.addCardToStack(phoneAFriendView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             }
             else if(source.equalsIgnoreCase("askTheAudienceButton") && lifeLines.getLifeLines(2) == false)
             {
                 lifeLines.usedLifeLine(2);
+                sounds.stop();
+                sounds.playGameSound(askTheAudienceSound);
                 askTheAudience.setAskTheAudience(question.getQuestionNumber());
                 AskTheAudienceView askTheAudienceView = new AskTheAudienceView(this);
                 card.addCardToStack(askTheAudienceView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
