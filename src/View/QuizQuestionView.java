@@ -45,12 +45,12 @@ public class QuizQuestionView extends JPanel
 
 		answers.shuffle();
 
-		this.questionLabel = new JLabel(QuizQuestions.getQuestion(qNumber.getQuestionNumber()).getQuestion());
-		questionLabel.setBounds(115, 190, 526, 66);
+		this.questionLabel = new JLabel("<html>" + QuizQuestions.getQuestion(qNumber.getQuestionNumber()).getQuestion() + "</html>");
+		questionLabel.setBounds(115, 190, 523, 66);
 		questionLabel.setForeground(Color.white);
 		add(questionLabel);
 
-		this.answerButton4 = new JButton("<html> C:   " + answers.getShuffledAnswers().get(0)+ "</html>");
+		this.answerButton4 = new JButton("C:   " + answers.getShuffledAnswers().get(0));
 		answerButton4.setOpaque(false);
 		answerButton4.setContentAreaFilled(false);
 		answerButton4.setBorderPainted(false);

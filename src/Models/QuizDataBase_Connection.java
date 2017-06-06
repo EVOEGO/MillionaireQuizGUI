@@ -111,7 +111,7 @@ public class QuizDataBase_Connection
 
             statement.close();
 
-           // System.out.println("Highscores Created!!!!");
+           System.out.println("Highscores Created!!!!");
 
 
         }

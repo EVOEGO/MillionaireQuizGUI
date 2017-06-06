@@ -15,7 +15,6 @@ import static View.gameSoundView.*;
  */
 public class Game implements ActionListener
 {
-    private QuestionDataBase CompleteQuizQuestions = new QuestionDataBase();
     private QuizDataBase_Connection con = new QuizDataBase_Connection();
     private SetFinalGameQuestions QuizQuestions = new SetFinalGameQuestions();
     private ShuffleAnswers SortedAnswers = new ShuffleAnswers();
@@ -39,6 +38,7 @@ public class Game implements ActionListener
         return SortedAnswers.getShuffledAnswers();
     }
 
+    //creates a new game each time the new game button is pressed
 
     public Game(Card card){
         this.card = card;

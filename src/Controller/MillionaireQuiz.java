@@ -83,35 +83,6 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
         NewQuiz.queryHighScoreDataBase();
         set.setFinalQuestions();
 
-           //QuizDataBase_Connection qdb = new QuizDataBase_Connection(); //qdb stands for "Quiz Data Base"
-//        Connection connection =null;
-//
-//        try
-//        {
-//            connection = QuizDataBase_Connection.establishConnection();
-//
-//            if(connection != null)
-//            {
-//                System.out.println("Connection Successful");
-//            }
-//
-//            newConnection.populateHighscores();
-//        }
-//        catch(Exception e)
-//        {
-//            e.printStackTrace();
-//        }
-//        finally {
-//            if(connection != null)
-//            {
-//                try {
-//                    connection.close();
-//                } catch (SQLException e) {
-//
-//                }
-//            }
-//        }
-
        MillionaireQuiz quiz = new MillionaireQuiz();
     }
 
