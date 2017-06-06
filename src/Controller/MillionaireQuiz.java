@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import static View.gameSoundView.introSound;
+import static View.gameSoundView.userName;
 
 public class MillionaireQuiz extends JFrame implements ActionListener {
 
@@ -26,6 +27,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
         {
             Game game = new Game(card);
             sounds.stop();
+            sounds.playGameSound(userName);
 
         } else if (source.equals("scoreButton"))
         {
@@ -33,6 +35,15 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
             card.addCardToStack(highScoreView, "highscore");
         }
         else if (source.equalsIgnoreCase("menuButton"))
+        {
+            card.showCard("Menu");
+        }
+        else if(source.equalsIgnoreCase("rulesButton"))
+        {
+            QuizRulesView quizRulesView = new QuizRulesView(this);
+            card.addCardToStack(quizRulesView, "Rules");
+        }
+        else if(source.equalsIgnoreCase("returnButton"))
         {
             card.showCard("Menu");
         }

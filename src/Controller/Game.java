@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import static View.gameSoundView.*;
+
 /**
  * Created by izaac on 22/05/2017.
  */
@@ -23,6 +25,7 @@ public class Game implements ActionListener
     private Username userName = new Username();
     private HighScores highScores = new HighScores();
     private PrizeMoney prizeMoney = new PrizeMoney();
+    private gameSoundView sounds = new gameSoundView();
     private UsernameView usernameView;
     private String UserName;
 
@@ -66,7 +69,8 @@ public class Game implements ActionListener
             {
                 question_Number++;
                 question.setCurrentNumber(question_Number);
-
+                sounds.stop();
+                sounds.playGameSound(correctSound);
                 QuizCorrectView correctView = new QuizCorrectView(this);
                 card.addCardToStack(correctView, "Correct");
 
@@ -88,22 +92,30 @@ public class Game implements ActionListener
                 {
                     QuizQuestionView FirstQuestionView = new QuizQuestionView(this);
                     card.addCardToStack(FirstQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
+                    sounds.playGameSound(questionSound);
                 }
             }
-            else if (source.equalsIgnoreCase("nextQuestionButton")) {
-
+            else if (source.equalsIgnoreCase("nextQuestionButton"))
+            {
+                sounds.playGameSound(questionSound);
                 QuizQuestionView NextQuestionView = new QuizQuestionView(this);
                 card.addCardToStack(NextQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
-            } else if (source.equalsIgnoreCase("returnToMenuBTN")) {
+            } else if (source.equalsIgnoreCase("returnToMenuBTN"))
+            {
+                sounds.playGameSound(exitSound);
                 ExitButtonView exitButtonView = new ExitButtonView(this, question.getQuestionNumber());
                 card.addCardToStack(exitButtonView, "ExitMessage");
             } else if (source.equalsIgnoreCase("exitButton"))
             {
+                sounds.stop();
+                sounds.playGameSound(exitSound);
                 ExitButtonView exitButtonView = new ExitButtonView(this, question.getQuestionNumber());
                 card.addCardToStack(exitButtonView, "ExitMessage");
             }
             else if(source.equalsIgnoreCase("fiftyFiftyButton") && lifeLines.getLifeLines(0) == false) {
                 lifeLines.usedLifeLine(0);
+                sounds.stop();
+                sounds.playGameSound(fiftyFiftySound);
                 FiftyFiftyView FiftyFiftyView = new FiftyFiftyView(this);
                 card.addCardToStack(FiftyFiftyView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             }
@@ -129,10 +141,14 @@ public class Game implements ActionListener
             }
             else if(source.equalsIgnoreCase("menuButton"))
             {
+                sounds.stop();
+                sounds.playGameSound(introSound);
                 card.showCard("Menu");
             }
             else
             {
+                sounds.stop();
+                sounds.playGameSound(incorrectSound);
                 QuizIncorrectView incorrectView = new QuizIncorrectView(this);
                 card.addCardToStack(incorrectView, "Incorrect");
             }
