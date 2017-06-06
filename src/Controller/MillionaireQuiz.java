@@ -9,11 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
+import static View.gameSoundView.introSound;
 
 public class MillionaireQuiz extends JFrame implements ActionListener {
+
+    private gameSoundView sounds;
 
     private Card card = new Card();
     @Override
@@ -24,7 +25,7 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
         if (source.equals("newGameButton"))
         {
             Game game = new Game(card);
-            System.out.println("oits alive");
+            sounds.stop();
 
         } else if (source.equals("scoreButton"))
         {
@@ -47,6 +48,8 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             JPanel menuView = new QuizMenuView(this);
+            sounds = new gameSoundView();
+            sounds.playGameSound(introSound);
 
             card.addCardToStack(menuView, "Menu");
             add(card);
@@ -65,7 +68,6 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
         SetFinalGameQuestions set = new SetFinalGameQuestions();
         QuizDataBase_Connection newConnection = new QuizDataBase_Connection();
         newConnection.establishConnection();
-        //newConnection.populateHighscores();
         NewQuiz.queryDataBase();
         NewQuiz.queryHighScoreDataBase();
         set.setFinalQuestions();
@@ -101,37 +103,6 @@ public class MillionaireQuiz extends JFrame implements ActionListener {
 
        MillionaireQuiz quiz = new MillionaireQuiz();
     }
-
-
-
-           /*QuizDataBase_Connection qdb = new QuizDataBase_Connection(); //qdb stands for "Quiz Data Base"
-        Connection connection =null;
-
-        try
-        {
-            connection = QuizDataBase_Connection.establishConnection();
-
-            if(connection != null)
-            {
-                System.out.println("Connection Successful");
-            }
-
-            newConnection.populateHighscores();
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally {
-            if(connection != null)
-            {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-
-                }
-            }
-        }*/
 
 
 }

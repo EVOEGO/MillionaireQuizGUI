@@ -49,48 +49,26 @@ public class QuizDataBase_Connection
         {
             Statement statement = connection.createStatement();
 
-            String sqlCreate = "create table " +databaseName+ " (UUID varchar(255), Difficulty int,"
-                    +  "Question varchar(255), Answer varchar(255), Incorrect1 varchar(255), Incorrect2 varchar(255)," +
-                    "Incorrect3 varchar(255))";
-
-            statement.executeUpdate(sqlCreate);
-            Scanner scan = new Scanner(new File("input/questionInformationUpdated.txt"));
-
-            String[] split = null;
-
-            while(scan.hasNext())
-            {
-                split = scan.nextLine().split("%");
-                String insert_data = "insert into "  + databaseName + " values";
-                insert_data = insert_data.concat("('" + split[0] + "', ");
-                insert_data = insert_data.concat("'" + split[1] + "', ");
-                insert_data = insert_data.concat("'" + split[2] + "', ");
-                insert_data = insert_data.concat("'" + split[3] + "', ");
-                insert_data = insert_data.concat("'" + split[4] + "', ");
-                insert_data = insert_data.concat("'" + split[5] + "', ");
-                insert_data = insert_data.concat("'" + split[6] + "')");
-                statement.executeUpdate(insert_data);
-
-
-            }
-
-
-//                for(int x = 0; x < data.getCompleteQuestionList().size(); x++)
-//                {
-//                    String insert_data = "insert into "  + databaseName + " values";
-//                    insert_data = insert_data.concat("('" + data.getCompleteQuestionList().get(x).getUUID() + "',`");
-//                    insert_data = insert_data + "" + data.getCompleteQuestionList().get(x).getDifficulty() + ", ";
-//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getQuestion() + "', ");
-//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getAnswer() + "', ");
-//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect1() + "', ");
-//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect2() + "', ");
-//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect3() + "')");
-//                    statement.executeUpdate(insert_data);
+//            String sqlCreate = "create table " +databaseName+ " (UUID varchar(255), Difficulty int,"
+//                    +  "Question varchar(255), Answer varchar(255), Incorrect1 varchar(255), Incorrect2 varchar(255)," +
+//                    "Incorrect3 varchar(255))";
 //
+//            statement.executeUpdate(sqlCreate);
 //
-//
-//
-//                }
+
+                for(int x = 0; x < data.getCompleteQuestionList().size(); x++)
+                {
+                    String insert_data = "insert into "  + databaseName + " values";
+                    insert_data = insert_data.concat("('" + data.getCompleteQuestionList().get(x).getUUID() + "',");
+                    insert_data = insert_data + "" + data.getCompleteQuestionList().get(x).getDifficulty() + ", ";
+                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getQuestion() + "', ");
+                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getAnswer() + "', ");
+                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect1() + "', ");
+                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect2() + "', ");
+                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect3() + "')");
+                    statement.executeUpdate(insert_data);
+
+                }
 
             statement.close();
 
@@ -98,7 +76,7 @@ public class QuizDataBase_Connection
             System.out.println("Table Created ");
 
         }
-        catch (SQLException | IOException r)
+        catch (SQLException r)
         {
             r.printStackTrace();
         }

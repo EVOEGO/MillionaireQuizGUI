@@ -36,14 +36,4 @@ public class PrizeMoney
         return prizeMoney;
 
     }
-//
-//
-//    public Integer getScore(int index)
-//    {
-//        if (index >= 0 && index < values.size()) {
-//            return values.get(index);
-//        }
-//        return null;
-//    }
-
 }

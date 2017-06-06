@@ -67,17 +67,13 @@ public class TestGame
     }
 
     @Test
-    public void testNumberOfFinalQuestions()
+    public void testPrizeMoney()
     {
-        //SetFinalGameQuestions QuizQuestions = new SetFinalGameQuestions();
-        AttributeDataBase data = new AttributeDataBase();
-        QuestionDataBase questionDataBase = new QuestionDataBase();
-        QuizDataBase_Connection connection = new QuizDataBase_Connection();
-        connection.getConnection();
-        questionDataBase.queryDataBase();
-        int output = questionDataBase.getQuiz_Questions().size();
+        PrizeMoney prizeMoney = new PrizeMoney();
+        int output = prizeMoney.getPrizeMoney(14);
 
-        assertEquals(90, output);
+        assertEquals(1000000, output);
+
     }
 
 }
