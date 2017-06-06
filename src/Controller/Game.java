@@ -50,13 +50,19 @@ public class Game implements ActionListener
     }
 
 
+    /*this method listens for actions that are performed by the actionlisteners stored
+    * inside the classes that i declare. When i receives the actionlistener it acts upon the */
     public void actionPerformed(ActionEvent actionEvent)
     {
 
             source = ((Component) actionEvent.getSource()).getName();
 
-
-            if (source.equalsIgnoreCase(QuizQuestions.getQuestion(question.getQuestionNumber()).getAnswer()))
+            if(question.getQuestionNumber() == 14 && source.equalsIgnoreCase(QuizQuestions.getQuestion(question.getQuestionNumber()).getAnswer()))
+            {
+                ExitButtonView exitButtonView = new ExitButtonView(this, question.getQuestionNumber());
+                card.addCardToStack(exitButtonView, "exitButton");
+            }
+            else if (source.equalsIgnoreCase(QuizQuestions.getQuestion(question.getQuestionNumber()).getAnswer()))
             {
                 question_Number++;
                 question.setCurrentNumber(question_Number);
@@ -89,10 +95,11 @@ public class Game implements ActionListener
                 QuizQuestionView NextQuestionView = new QuizQuestionView(this);
                 card.addCardToStack(NextQuestionView, QuizQuestions.getQuestion(question.getQuestionNumber()).getUUID());
             } else if (source.equalsIgnoreCase("returnToMenuBTN")) {
-                card.showCard("Menu");
+                ExitButtonView exitButtonView = new ExitButtonView(this, question.getQuestionNumber());
+                card.addCardToStack(exitButtonView, "ExitMessage");
             } else if (source.equalsIgnoreCase("exitButton"))
             {
-                ExitButtonView exitButtonView = new ExitButtonView(this);
+                ExitButtonView exitButtonView = new ExitButtonView(this, question.getQuestionNumber());
                 card.addCardToStack(exitButtonView, "ExitMessage");
             }
             else if(source.equalsIgnoreCase("fiftyFiftyButton") && lifeLines.getLifeLines(0) == false) {

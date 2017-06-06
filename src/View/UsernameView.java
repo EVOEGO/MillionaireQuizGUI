@@ -41,7 +41,7 @@ public class UsernameView extends JPanel
         usernameText.setOpaque(false);
 
         usernameText.setForeground(Color.white);
-        usernameText.setBounds(285, 169, 211, 30);
+        usernameText.setBounds(318, 169, 211, 30);
         add(usernameText);
 
         this.usernameField = new JTextField();

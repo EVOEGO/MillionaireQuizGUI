@@ -23,6 +23,8 @@ public class FiftyFiftyView extends JPanel
     private JButton answerButton2;
     private JButton exitButton;
     private JButton fiftyFiftyButton;
+    private JButton askTheAudienceButton;
+    private JButton phoneAFriendButton;
 
     private JLabel questionLabel;
     private JLabel fiftyFiftyBackground;
@@ -74,6 +76,30 @@ public class FiftyFiftyView extends JPanel
         fiftyFiftyBackground.setBounds(0, 0, 760, 400);
         add(fiftyFiftyBackground);
 
+        if(lifeLines.getLifeLines(1) == false)
+        {
+            this.phoneAFriendButton = new JButton();
+            phoneAFriendButton.setOpaque(false);
+            phoneAFriendButton.setContentAreaFilled(false);
+            phoneAFriendButton.setBorderPainted(false);
+            phoneAFriendButton.setBounds(584, 21, 76, 42);
+            phoneAFriendButton.setName("phoneAFriendButton");
+            phoneAFriendButton.addActionListener(w);
+            add(phoneAFriendButton);
+        }
+
+        if(lifeLines.getLifeLines(2) == false)
+        {
+            this.askTheAudienceButton = new JButton();
+            askTheAudienceButton.setOpaque(false);
+            askTheAudienceButton.setContentAreaFilled(false);
+            askTheAudienceButton.setBorderPainted(false);
+            askTheAudienceButton.setBounds(673, 22, 76, 42);
+            askTheAudienceButton.setName("askTheAudienceButton");
+            askTheAudienceButton.addActionListener(w);
+            add(askTheAudienceButton);
+
+        }
 
         if(lifeLines.getLifeLines(0) == true)
         {

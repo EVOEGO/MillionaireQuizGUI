@@ -141,7 +141,7 @@ public class AskTheAudienceView extends JPanel
             add(fiftyFiftyButton);
         }
 
-        if(lifeLines.getLifeLines(1))
+        if(lifeLines.getLifeLines(1) == false)
         {
             this.phoneAFriendButton = new JButton();
             phoneAFriendButton.setOpaque(false);

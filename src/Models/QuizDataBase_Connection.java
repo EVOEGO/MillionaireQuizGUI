@@ -1,9 +1,12 @@
 package Models;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  * Created by izaac on 15/05/2017.
@@ -46,28 +49,48 @@ public class QuizDataBase_Connection
         {
             Statement statement = connection.createStatement();
 
-            /*String sqlCreate = "create table " +database_table+ " (UUID varchar(255), Difficulty int,"
+            String sqlCreate = "create table " +databaseName+ " (UUID varchar(255), Difficulty int,"
                     +  "Question varchar(255), Answer varchar(255), Incorrect1 varchar(255), Incorrect2 varchar(255)," +
                     "Incorrect3 varchar(255))";
 
-            statement.executeUpdate(sqlCreate);*/
+            statement.executeUpdate(sqlCreate);
+            Scanner scan = new Scanner(new File("input/questionInformationUpdated.txt"));
+
+            String[] split = null;
+
+            while(scan.hasNext())
+            {
+                split = scan.nextLine().split("%");
+                String insert_data = "insert into "  + databaseName + " values";
+                insert_data = insert_data.concat("('" + split[0] + "', ");
+                insert_data = insert_data.concat("'" + split[1] + "', ");
+                insert_data = insert_data.concat("'" + split[2] + "', ");
+                insert_data = insert_data.concat("'" + split[3] + "', ");
+                insert_data = insert_data.concat("'" + split[4] + "', ");
+                insert_data = insert_data.concat("'" + split[5] + "', ");
+                insert_data = insert_data.concat("'" + split[6] + "')");
+                statement.executeUpdate(insert_data);
 
 
-
-                for(int x = 0; x < data.getCompleteQuestionList().size(); x++)
-                {
-                    String insert_data = "insert into "  + databaseName + " values";
-                    insert_data = insert_data.concat("('" + data.getCompleteQuestionList().get(x).getUUID() + "',`");
-                    insert_data = insert_data + "" + data.getCompleteQuestionList().get(x).getDifficulty() + ", ";
-                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getQuestion() + "', ");
-                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getAnswer() + "', ");
-                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect1() + "', ");
-                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect2() + "', ");
-                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect3() + "')");
-                    statement.executeUpdate(insert_data);
+            }
 
 
-                }
+//                for(int x = 0; x < data.getCompleteQuestionList().size(); x++)
+//                {
+//                    String insert_data = "insert into "  + databaseName + " values";
+//                    insert_data = insert_data.concat("('" + data.getCompleteQuestionList().get(x).getUUID() + "',`");
+//                    insert_data = insert_data + "" + data.getCompleteQuestionList().get(x).getDifficulty() + ", ";
+//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getQuestion() + "', ");
+//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getAnswer() + "', ");
+//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect1() + "', ");
+//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect2() + "', ");
+//                    insert_data = insert_data.concat(" '" + data.getCompleteQuestionList().get(x).getIncorrect3() + "')");
+//                    statement.executeUpdate(insert_data);
+//
+//
+//
+//
+//                }
 
             statement.close();
 
@@ -75,7 +98,7 @@ public class QuizDataBase_Connection
             System.out.println("Table Created ");
 
         }
-        catch (SQLException r)
+        catch (SQLException | IOException r)
         {
             r.printStackTrace();
         }
@@ -88,11 +111,11 @@ public class QuizDataBase_Connection
             Statement statement = connection.createStatement();
 
             String database_table = "IZAAC.Quiz_HIGHSCORES";
-           // String sqlCreate = "create table " +database_table+ " (";
+            //String sqlCreate = "create table " +database_table+ " (";
 
-            //String sqlCreate = "create table " +database_table+ " (Username varchar(255), Winnings varchar(255))";
+            String sqlCreate = "create table " +database_table+ " (Username varchar(255), Winnings varchar(255))";
 
-            //statement.executeUpdate(sqlCreate);
+            statement.executeUpdate(sqlCreate);
 
             String insert_scores = "insert into " + highScoreDatabase + " values";
 
